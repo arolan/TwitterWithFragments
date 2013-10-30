@@ -9,7 +9,7 @@
     tools:context=".ComposeNewTweetActivity" >
 
     <Button
-        android:id="@+id/btnCancel"
+        android:id="@+id/tab_frame_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -31,8 +31,8 @@
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:layout_alignParentLeft="true"
-        android:layout_alignRight="@+id/btnCancel"
-        android:layout_below="@+id/btnCancel"
+        android:layout_alignRight="@+id/tab_frame_container"
+        android:layout_below="@+id/tab_frame_container"
         android:layout_marginTop="42dp"
         android:src="@drawable/ic_launcher" />
 

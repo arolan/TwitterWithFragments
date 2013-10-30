@@ -8,6 +8,8 @@
     <string name="login_label">Log in</string>
     <string name="title_activity_timeline">TimelineActivity</string>
     <string name="composeNewTweetBtnTitle">New Tweet</string>
+    <string name="viewProfileBtnTitle">Profile</string>
     <string name="title_activity_compose_new_tweet">ComposeNewTweet</string>
+    <string name="title_activity_profile">ProfileActivity</string>
 
 </resources>

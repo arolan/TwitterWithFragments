@@ -5,14 +5,14 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="10"
+        android:minSdkVersion="11"
         android:targetSdkVersion="17" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    
+
     <application
         android:name="com.codepath.apps.twitterclientapp.TwitterApp"
         android:allowBackup="true"
@@ -52,6 +52,10 @@
         <activity
             android:name="com.codepath.apps.twitterclientapp.ComposeNewTweetActivity"
             android:label="@string/title_activity_compose_new_tweet" >
+        </activity>
+        <activity
+            android:name="com.codepath.apps.twitterclientapp.ProfileActivity"
+            android:label="@string/title_activity_profile" >
         </activity>
     </application>
 

@@ -1,19 +1,21 @@
 package com.codepath.apps.twitterclientapp;
 
-import java.util.Date;
 import java.util.List;
 
 import android.content.Context;
+import android.content.Intent;
 import android.text.Html;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.codepath.apps.twitterclientapp.models.Tweet;
+import com.codepath.apps.twitterclientapp.utils.UserUtils;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 public class TweetsAdapter extends ArrayAdapter<Tweet>{
@@ -59,5 +61,4 @@ public class TweetsAdapter extends ArrayAdapter<Tweet>{
 		
 		
 	}
-
 }

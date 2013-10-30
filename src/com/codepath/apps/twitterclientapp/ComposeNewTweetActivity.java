@@ -13,6 +13,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -20,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.codepath.apps.twitterclientapp.models.Tweet;
+import com.codepath.apps.twitterclientapp.utils.UserUtils;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -34,23 +36,15 @@ public class ComposeNewTweetActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		// Request the feature before setting content view
+        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+
 		setContentView(R.layout.activity_compose_new_tweet);
 		etComponseNewTweetText = (EditText) findViewById(R.id.etNewTweetText);
-		//		etComponseNewTweetText.setFocusable(true);
-		//		etComponseNewTweetText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-		//		    @Override
-		//		    public void onFocusChange(View v, boolean hasFocus) {
-		//		        if (v.requestFocus()) {
-		//		        	InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-		//		            imm.showSoftInput(etComponseNewTweetText, InputMethodManager.SHOW_IMPLICIT);
-		//		        }
-		//		    }
-		//		});
-
 		ivCurrentUserImage = (ImageView) findViewById(R.id.ivCurrentUserPhoto);
-		ImageLoader.getInstance().displayImage(TimelineActivity.getCurrentLoggedInUser().getProfileImageUrl(), ivCurrentUserImage);
+		ImageLoader.getInstance().displayImage(UserUtils.getCurrentLoggedInUser().getProfileImageUrl(), ivCurrentUserImage);
 		tvCurrentUserScreenName = (TextView) findViewById(R.id.tvScreenName);
-		tvCurrentUserScreenName.setText("@"+TimelineActivity.getCurrentLoggedInUser().getScreenName());
+		tvCurrentUserScreenName.setText("@"+UserUtils.getCurrentLoggedInUser().getScreenName());
 
 	}
 
@@ -82,7 +76,7 @@ public class ComposeNewTweetActivity extends Activity {
 			TwitterApp.getRestClient().postTweet(new JsonHttpResponseHandler() {
 				@Override
 				public void onSuccess(JSONArray jsonTweets) {
-
+			
 				}
 			}, tweet);
 
@@ -104,7 +98,7 @@ public class ComposeNewTweetActivity extends Activity {
 			e.printStackTrace();
 		}
 
-		tweet.setUser(TimelineActivity.getCurrentLoggedInUser());
+		tweet.setUser(UserUtils.getCurrentLoggedInUser());
 		return tweet;
 	}
 

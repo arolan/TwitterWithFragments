@@ -37,6 +37,9 @@ public class User extends Model implements Serializable {
 	@Column(name = "FriendsCount")
 	private int friendsCount;
 
+	@Column(name = "TagLine")
+	private String tagLine;
+
 	// Make sure to define this constructor (with no arguments)
 	// If you don't, querying will fail to return results!
 	public User() {
@@ -157,13 +160,23 @@ public class User extends Model implements Serializable {
 			u.numTweets = json.getInt("statuses_count");
 			u.followersCount = json.getInt("followers_count");
 			u.friendsCount = json.getInt("friends_count");
-			
+			u.tagLine = json.getString("description");
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		}
 		u.save();
 		return u;
+	}
+
+
+	public String getTagLine() {
+		return tagLine;
+	}
+
+
+	public void setTagLine(String tagLine) {
+		this.tagLine = tagLine;
 	}
 
 
